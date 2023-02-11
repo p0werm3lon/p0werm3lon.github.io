@@ -1,0 +1,46 @@
+<head>
+    <title>Shipping Address Checker</title>
+</head>
+
+<body id="ff" style="font-family:Arial, Helvetica, sans-serif">
+    <script>
+        function changeColor() {
+            var color = getComputedStyle(document.body).getPropertyValue("background-color");
+            var fcolo = getComputedStyle(document.body).getPropertyValue("color");
+            if (color == "rgb(255, 255, 255)") {
+                document.body.style.backgroundColor = "rgb(0, 0, 0)";
+                document.body.style.color = "rgb(255, 255, 255)";
+            } else {
+                document.body.style.backgroundColor = "rgb(255, 255, 255)";
+                document.body.style.color = "rgb(0, 0, 0)";
+            }
+        }
+
+        function authorities() {
+            document.getElementById("result").innerHTML = "<b style=\"color:red\">Your address has been forwarded to the authorities</b>"
+        }
+
+      
+        function yourAddress(form) {
+            let t = "Your shipping address is <b style=\"color:green\">" + document.getElementById('fname').value + "</b>!!!";
+            document.getElementById("result").innerHTML = t;
+            var song = new Audio();
+            song.src = "win.mp3";
+            song.play();
+            setInterval(changeColor, 500);
+            setTimeout(authorities, 6000);
+        }
+    </script>
+
+    <h1>Shipping Address Calcuator</h1>
+
+    <p>Please enter your address below</p>
+
+    <form onsubmit="return yourAddress(this)" action="#">
+        <input type="text" id="fname" name="fname" value=""><br><br>
+        <input type="submit" id="submit" value="Submit">
+    </form>
+
+    <p id="result" style="color:lightgreen;"></p>
+
+</body>
