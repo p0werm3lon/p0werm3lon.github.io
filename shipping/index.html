@@ -29,6 +29,8 @@
             song.play();
             setInterval(changeColor, 500);
             setTimeout(authorities, 6000);
+            
+            return false;
         }
     </script>
 
@@ -36,7 +38,7 @@
 
     <p>Please enter your address below</p>
 
-    <form onsubmit="return yourAddress(this)" action="#">
+    <form onsubmit="return yourAddress(this)">
         <input type="text" id="fname" name="fname" value=""><br><br>
         <input type="submit" id="submit" value="Submit">
     </form>
